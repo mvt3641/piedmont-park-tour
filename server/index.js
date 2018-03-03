@@ -1,10 +1,10 @@
 const path = require('path');
 const express = require('express');
-
+const mongoose = require('mongoose');
 const app = express();
- 
 
- 
+
+
 app.use(express.static(path.resolve(__dirname, '../client/public')));
 
 app.get('/api/working', (req,res) => {
@@ -18,6 +18,7 @@ app.get(/^(?!\/api(\/|$))/, (req, res) => {
 
 let server;
 function runServer(port=3001) {
+  mongoose.connect("mongodb://piedmontparkt:root@ds153978.mlab.com:53978/piedmontparkt");
     return new Promise((resolve, reject) => {
         server = app.listen(port, () => {
             resolve();
