@@ -3,7 +3,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
+const mapItemSchema = new mongoose.Schema({
+   link: [String],
+   lon: {type:Number, required:true},
+   lat: {type:Number, required:true},
+   info: String
+});
+
+const MapItem =  mongoose.model('MapItem', mapItemSchema, mapItems);
 
 app.use(express.static(path.resolve(__dirname, '../client/public')));
 
