@@ -1,5 +1,4 @@
-//import db,etc
-const MapItem - require();
+const MapItem = require("./server/models");
 const success = position=>{
     const currLat = position.coords.latitude;
     const currLong = position.coords.longitude;
