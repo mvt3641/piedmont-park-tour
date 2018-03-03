@@ -12,53 +12,39 @@ const mapItemSchema = new mongoose.Schema({
     info: String,
     name:String
  });
- const MapItem =  mongoose.model('MapItem', mapItemSchema, mapItems);
+
+
+ const MapItem =  mongoose.model('MapItem', mapItemSchema, 'mapItems');
 
 app.use(express.static(path.resolve(__dirname, '../client/public')));
 
-app.get('/api/working', (req,res) => {
-    res.send('I work')
-});
-
-app.push('/api/location', (req,res) => {
-    const success = position=>{
-        const currLat = position.coords.latitude;
-        const currLong = position.coords.longitude;
-        //use coords to query database
-        db.MapItem.find({})
-            .where({ //query using range
-                        lat: {
-                            $gte: currLat + 0.01,
-                            $lte: currLat - 0.01
-                        }
-                    } &&
-                    {
-                        long: {
-                            $gte: currLong + 0.01,
-                            $lte: currLong - 0.01
-                        }
-          })
-                .then(dbMapItem=> {
-                    console.log(dbMapItem);
-                    console.log("sending document back");
-                    res.json(dbMapItem);
-                })
-                .catch(function(err) {
-                    res.json(err);
-                });
-    };
-    
-    const error = err=>{
-        alert("Failed to get your position because "+err)
-    };
-    
-    const options = {
-        enableHighAccuracy: true, 
-        maximumAge        : 30000, 
-        timeout           : 27000
-      };
-    
-    const watchLoc = navigator.geolocation.watchPosition(success,error,options);
+app.get('/api/location/:lat/:lon', (req,res) => {
+    console.log(typeof req.params.lat)
+    let currLat = parseFloat(req.params.lat)
+    let currLon = parseFloat(req.params.lon)
+    console.log( currLat, currLon);
+    MapItem
+        .find({ })
+        .where({
+        "lat": {
+            $lt: currLat + .00025,
+            $gt: currLat - .00025
+            }
+        } &&
+        {
+        "lon": {
+            $lt: currLon + .00025,
+            $gt: currLon - .00025
+        }})
+        .then(dbMapItem=> {
+            console.log(dbMapItem);
+            console.log("sending document back");
+            res.json(dbMapItem);
+        })
+        .catch(function(err) {
+            console.log('bing')
+            res.json(err);
+        });
 });
 
 app.get(/^(?!\/api(\/|$))/, (req, res) => {
