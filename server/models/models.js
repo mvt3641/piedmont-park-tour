@@ -1,10 +1,12 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const mapItemSchema = new mongoose.Schema({
-   name: String,
+   name: [String],
    lon: Number,
    lat: Number,
-   copy: String
+   info: String
 });
-module.exports = mongoose.model('MapItem', mapItemSchema);`
+
+const MapItem =  mongoose.model('MapItem', mapItemSchema, mapItems);
+module.exports = {MapItem}
