@@ -13,8 +13,6 @@ const mapItemSchema = new mongoose.Schema({
    name:String
 });
 
-
-
 const MapItem =  mongoose.model('MapItem', mapItemSchema, 'mapItems');
 
 app.use(express.static(path.resolve(__dirname, '../client/public')));
