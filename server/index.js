@@ -14,6 +14,8 @@ const mapItemSchema = new mongoose.Schema({
    name:String
 });
 
+
+
 const MapItem =  mongoose.model('MapItem', mapItemSchema, mapItems);
 
 app.use(express.static(path.resolve(__dirname, '../client/public')));
@@ -21,6 +23,8 @@ app.use(express.static(path.resolve(__dirname, '../client/public')));
 app.get('/api/working', (req,res) => {
     res.send('I work')
 })
+
+
 
 app.get(/^(?!\/api(\/|$))/, (req, res) => {
     const index = path.resolve(__dirname, '../client/public', 'index.html');
