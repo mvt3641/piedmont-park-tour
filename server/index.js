@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+const {DATABASE_URL} = require('./config')
 
 const Schema = mongoose.Schema;
 
@@ -30,7 +31,7 @@ app.get(/^(?!\/api(\/|$))/, (req, res) => {
 
 let server;
 function runServer(port=3001) {
-  mongoose.connect("mongodb://piedmontparkt:root@ds153978.mlab.com:53978/piedmontparkt");
+  mongoose.connect(DATABASE_URL);
     return new Promise((resolve, reject) => {
         server = app.listen(port, () => {
             resolve();
