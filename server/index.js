@@ -6,7 +6,6 @@ const {DATABASE_URL} = require('./config')
 
 const Schema = mongoose.Schema;
 const mapItemSchema = new mongoose.Schema({
-<<<<<<< HEAD
     link: [String],
     lon: {type:Number, required:true},
     lat: {type:Number, required:true},
@@ -14,16 +13,6 @@ const mapItemSchema = new mongoose.Schema({
     name:String
  });
  const MapItem =  mongoose.model('MapItem', mapItemSchema, mapItems);
-=======
-   link: [String],
-   lon: {type:Number, required:true},
-   lat: {type:Number, required:true},
-   info: String,
-   name:String
-});
-
-const MapItem =  mongoose.model('MapItem', mapItemSchema, 'mapItems');
->>>>>>> a129af9a33db0b191d411afefd9c38968a1fd5fd
 
 app.use(express.static(path.resolve(__dirname, '../client/public')));
 
