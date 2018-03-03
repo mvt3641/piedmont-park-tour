@@ -10,7 +10,8 @@ const mapItemSchema = new mongoose.Schema({
    link: [String],
    lon: {type:Number, required:true},
    lat: {type:Number, required:true},
-   info: String
+   info: String,
+   name:String
 });
 
 const MapItem =  mongoose.model('MapItem', mapItemSchema, mapItems);
