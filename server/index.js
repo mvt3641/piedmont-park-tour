@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 
-const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const mapItemSchema = new mongoose.Schema({
@@ -16,7 +15,7 @@ const mapItemSchema = new mongoose.Schema({
 
 
 
-const MapItem =  mongoose.model('MapItem', mapItemSchema, mapItems);
+const MapItem =  mongoose.model('MapItem', mapItemSchema, 'mapItems');
 
 app.use(express.static(path.resolve(__dirname, '../client/public')));
 
