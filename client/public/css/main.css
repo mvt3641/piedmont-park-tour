@@ -36,3 +36,6 @@ body {
     width: 200px;
 }
 
+.food,.events,.activities {
+    color: white !important;
+}

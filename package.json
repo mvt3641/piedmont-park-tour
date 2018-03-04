@@ -1,17 +1,14 @@
 {
-  "name": "testing-higher-order-components",
+  "name": "piedmont-park-tour",
   "version": "0.1.0",
   "description": "trying out higher order components, passing props around, child to parent/parent to child",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
+  "scripts": {  
+    "start": "cd server && node index.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm run build",
-    "dev": "run-p dev:server dev:client start",
-    "dev:client": "cd client && cross-env BROWSER=none npm start -- --color=always | xp http://localhost:3000/ http://localhost:8080/",
-    "dev:server": "cd server && npm start",
-    "install": "run-s install:server install:client",
-    "install:server": "cd server && npm install",
-    "install:client": "cd client && npm install"
+    "dev": "cd server && nodemon index.js",
+    "install": "run-s install:server",
+    "install:server": "cd server && npm install"
   },
   "cacheDirectories": [
     "node_modules",
