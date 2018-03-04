@@ -32,17 +32,6 @@ app.get('/api/location', (req,res) => {
     console.log( currLat, currLon);
     MapItem
         .find({})
-        // .where({
-        // "lat": {
-        //     $lt: currLat + .00025,
-        //     $gt: currLat - .00025
-        //     }
-        // } &&
-        // {
-        // "lon": {
-        //     $lt: currLon + .00025,
-        //     $gt: currLon - .00025
-        // }})
         .then(dbMapItem=> {
             console.log(dbMapItem);
             console.log("sending document back");
