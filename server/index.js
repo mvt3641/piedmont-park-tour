@@ -47,6 +47,11 @@ app.get('/api/location/:lat/:lon', (req,res) => {
         });
 });
 
+
+app.get('/food', (req,res) => {
+    const food = path.resolve(__dirname, '../client/public', 'food/food.html');
+    res.sendFile(food)
+})
 app.get(/^(?!\/api(\/|$))/, (req, res) => {
     const index = path.resolve(__dirname, '../client/public', 'index.html');
     res.sendFile(index);
