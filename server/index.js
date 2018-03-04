@@ -18,13 +18,6 @@ const mapItemSchema = new mongoose.Schema({
 
 app.use(express.static(path.resolve(__dirname, '../client/public')));
 
-
-MapItem.create({link: "goij",
-lat: 33.7946333,
-lon: -84.44877199999999,
-info: 'lo',
-name: 'new place'
-})
 app.get('/api/location', (req,res) => {
     console.log(typeof req.params.lat)
     let currLat = parseFloat(req.params.lat)
@@ -42,7 +35,6 @@ app.get('/api/location', (req,res) => {
             res.json(err);
         });
 });
-
 
 app.get('/food', (req,res) => {
     const food = path.resolve(__dirname, '../client/public', 'food/food.html');

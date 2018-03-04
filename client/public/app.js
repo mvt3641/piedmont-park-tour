@@ -18,6 +18,7 @@ $(function(){
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.watchPosition(showPosition);
+            navigator.geolocation.getCurrentPosition(initMap);
         } else { 
             alert("Geolocation is not supported by this browser. Unfortunately, you will not"+
             " be able to use this feature.")
@@ -39,6 +40,27 @@ $(function(){
         })
 
     }
+
+    
+function initMap(position) {
+    console.log(position);
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    console.log(latitude);
+    console.log(longitude); 
+
+    var uluru = {lat: latitude, lng: longitude};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
+
+
     }
     getLocation();
 })
