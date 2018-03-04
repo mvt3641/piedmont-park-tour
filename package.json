@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "trying out higher order components, passing props around, child to parent/parent to child",
   "main": "index.js",
-  "scripts": {
+  "scripts": {  
     "start": "cd server && node index.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm run build",
     "dev": "cd server && nodemon index.js",
