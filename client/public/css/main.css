@@ -42,3 +42,6 @@ body {
     background-color: grey;
   }
 
+.food,.events,.activities {
+    color: white !important;
+}
