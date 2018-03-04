@@ -36,6 +36,12 @@ body {
     width: 200px;
 }
 
+#map {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+  }
+
 .food,.events,.activities {
     color: white !important;
 }
