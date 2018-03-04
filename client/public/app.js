@@ -64,5 +64,5 @@ function initMap(position) {
     }
     getLocation();
 })
-
+  
 
