@@ -18,24 +18,31 @@ const mapItemSchema = new mongoose.Schema({
 
 app.use(express.static(path.resolve(__dirname, '../client/public')));
 
-app.get('/api/location/:lat/:lon', (req,res) => {
+
+MapItem.create({link: "goij",
+lat: 33.7946333,
+lon: -84.44877199999999,
+info: 'lo',
+name: 'new place'
+})
+app.get('/api/location', (req,res) => {
     console.log(typeof req.params.lat)
     let currLat = parseFloat(req.params.lat)
     let currLon = parseFloat(req.params.lon)
     console.log( currLat, currLon);
     MapItem
-        .find({ })
-        .where({
-        "lat": {
-            $lt: currLat + .00025,
-            $gt: currLat - .00025
-            }
-        } &&
-        {
-        "lon": {
-            $lt: currLon + .00025,
-            $gt: currLon - .00025
-        }})
+        .find({})
+        // .where({
+        // "lat": {
+        //     $lt: currLat + .00025,
+        //     $gt: currLat - .00025
+        //     }
+        // } &&
+        // {
+        // "lon": {
+        //     $lt: currLon + .00025,
+        //     $gt: currLon - .00025
+        // }})
         .then(dbMapItem=> {
             console.log(dbMapItem);
             console.log("sending document back");
@@ -52,6 +59,12 @@ app.get('/food', (req,res) => {
     const food = path.resolve(__dirname, '../client/public', 'food/food.html');
     res.sendFile(food)
 })
+
+app.get('/events', (req,res) => {
+    const events = path.resolve(__dirname, '../client/public', 'events/events.html');
+    res.sendFile(events)
+})
+
 app.get(/^(?!\/api(\/|$))/, (req, res) => {
     const index = path.resolve(__dirname, '../client/public', 'index.html');
     res.sendFile(index);
