@@ -46,6 +46,11 @@ app.get('/events', (req,res) => {
     res.sendFile(events)
 })
 
+app.get('/activities', (req,res)=>{
+    const activities = path.resolve(__dirname, '../client/public', 'activities/activities.html');
+    res.sendFile(activities)
+});
+
 app.get(/^(?!\/api(\/|$))/, (req, res) => {
     const index = path.resolve(__dirname, '../client/public', 'index.html');
     res.sendFile(index);

@@ -14,7 +14,7 @@ $(function(){
             state.arr = [...state.arr,...res]
             return state
         })
-
+console.log(state)
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.watchPosition(showPosition);
@@ -59,7 +59,6 @@ function initMap(position) {
       map: map
     });
   }
-
 
     }
     getLocation();
