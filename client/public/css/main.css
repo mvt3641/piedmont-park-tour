@@ -13,6 +13,7 @@ body {
 .container-fluid{
     text-align: center;    
 }
+
 #root {
     height:100%;
     width:100%;
@@ -21,7 +22,7 @@ body {
 .trail-btn{
     height: 200px;
     width: 400px;
-    margin: 0px 20px 0px;
+    margin: 20px 20px 20px;
 }
 
 .trail-row{
@@ -30,7 +31,7 @@ body {
 }
 
 .nav-btn{
-    margin: 0px 20px 0px;
+    margin: 7px 20px 7px;
     height: 75px;
     width: 200px;
 }
