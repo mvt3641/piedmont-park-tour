@@ -1,5 +1,5 @@
 {
-  "name": "testing-higher-order-components",
+  "name": "piedmont-park-tour",
   "version": "0.1.0",
   "description": "trying out higher order components, passing props around, child to parent/parent to child",
   "main": "index.js",
