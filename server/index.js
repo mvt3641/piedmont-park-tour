@@ -16,7 +16,7 @@ const mapItemSchema = new mongoose.Schema({
 
  const MapItem =  mongoose.model('MapItem', mapItemSchema, 'mapItems');
 
-app.use(express.static(path.resolve(__dirname, '../client/public')));
+app.use(express.static(path.join(__dirname, '../client/public')));
 
 app.get('/api/location', (req,res) => {
     console.log(typeof req.params.lat)
