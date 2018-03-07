@@ -44,7 +44,7 @@ app.get('/events', (req,res) => {
     const events = path.resolve(__dirname, '../client/public', 'events/events.html');
     res.sendFile(events)
 })
-
+ 
 app.get('/activities', (req,res)=>{
     const activities = path.resolve(__dirname, '../client/public', 'activities/activities.html');
     res.sendFile(activities)
